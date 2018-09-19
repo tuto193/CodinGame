@@ -16,7 +16,8 @@ class Solution
         string s = n1.ToString();
         int sum = 0;
         for( int i = 0; i < s.Length; i++ ) {
-            sum += s[i];
+            int m = s[i] - '0';
+            sum += m;
         }
         sum += n1;
         return sum;
@@ -25,16 +26,18 @@ class Solution
     {
         int r1 = int.Parse(Console.ReadLine());
         int check = r1;
-        while( check > 0 ) {
+        bool found = false;
+        while( check > 0 && !found ) {
             int nCheck = check;
-            while( nCheck <= r1 ) {
+            while( nCheck <= r1 && !found ) {
                 nCheck = GetFlow( nCheck );
                 if( nCheck == r1 ) {
                     Console.WriteLine("YES");
+                    found = true;
                 }
             }
             check--;
-            if( check == 0 ) {
+            if( check == 0 && !found ) {
                 Console.WriteLine("NO");
             }
         }
