@@ -27,8 +27,8 @@ class Solution
         int r1 = int.Parse(Console.ReadLine());
         int check = r1;
         bool found = false;
-        while( check > 0 && !found ) {
             int nCheck = check;
+        while( check > 0 && !found ) {
             while( nCheck <= r1 && !found ) {
                 nCheck = GetFlow( nCheck );
                 if( nCheck == r1 ) {
